@@ -1,38 +1,47 @@
+/**
+ * Created by flyjennyetn on 2016-10-26.
+ */
 import axios from 'axios'
-import Qs from 'qs'
+import moment from 'moment'
+import {Toast} from 'antd-mobile';
+import {JYH171229} from './config'
 
 let config = {
-    baseURL: 'http://127.0.0.1:3030',
-    transformRequest: [(data) =>{
-        // 这里可以在发送请求之前对请求数据做处理，比如form-data格式化等，这里可以使用开头引入的Qs（这个模块在安装axios的时候就已经安装了，不需要另外安装）
-        let ret = '';
-        for (let it in data) {
-            ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
-        }
-        return ret
-        
-    }],
-    transformResponse: [(data)=> {
-        // 这里提前处理返回的数据
-        return data
-    }],
-    headers: {
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-    },
+    headers: {'Content-Type': 'application/json;charset=UTF-8'},
     timeout: 10000,
-    responseType: 'json'
-};
+    responseType: 'json',
+    withCredentials: true,
+    transformRequest: [(data) => {
 
-axios.interceptors.response.use(function(res){
+        let datum = {
+            ...data.info,
+            head:{
+                "appid": JYT171215.APPID,
+                "transDate": moment().format('YYYYMMDD'),
+                "transTime": moment().format('HHmmss'),
+                "appkey": JYT171215.APPKEY,
+                "sign": "",
+                ...data.params
+            }
+        }
+        delete datum.head.requestUrl
+        return JSON.stringify(datum)
+    }],
+    transformResponse: [(json)=> {
+        // 这里提前处理返回的数据
+        if (json.resultCode == '10') {
+            return json.t
+        } else {
+            Toast.info(json.resultMsg)
+            return false
+        }
+    }]
+};
+axios.interceptors.response.use(function (res) {
     //相应拦截器
     return res.data;
 });
-
-export function get(url, data) {
-    // let fullUrl = url+'?header=' + JSON.stringify(data.header) + '&' + 'info=' + JSON.stringify(data.info);
-    return axios.get(fullUrl, config)
-}
-
-export function post(url, data) {
-    return axios.post(url, data, config)
+export function postApi(data) {
+    let fullUrl = (data.params.requestUrl.indexOf('http') === -1) ? JYH171229.API_HOST + data.params.requestUrl : data.params.requestUrl;
+    return axios.post(fullUrl,data, config)
 }
