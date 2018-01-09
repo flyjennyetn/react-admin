@@ -5,6 +5,7 @@ import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import CompressionWebpackPlugin from 'compression-webpack-plugin'
+import HashOutput from 'webpack-plugin-hash-output';
 
 const svgDirs = [
     require.resolve('antd').replace(/warn\.js$/, ''),  // 1. 属于 antd-mobile 内置 svg 文件
@@ -20,12 +21,12 @@ var webpackConfig={
         ],
     },
     output: {
-        path: path.join(__dirname,'dist',packageInfo.version),
+        path: path.join(__dirname,'dist'),
         filename: 'bundle.min.js',
         publicPath: '/',
     },
     externals: {
-        'wx': 'wx',
+        'axios': 'axios',
         'moment':'moment',
         'lodash':'lodash',
     },
@@ -39,7 +40,6 @@ var webpackConfig={
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV)
             }
         }),
-
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             filename:'vendor.min.js',
@@ -50,7 +50,6 @@ var webpackConfig={
             template: path.resolve(__dirname,'app/template.html'),
             filename:'index.html',
             inject: 'body',
-            favicon :'./favicon.ico',
             hash: true,
             cache:true,
             minify:{
@@ -71,7 +70,9 @@ var webpackConfig={
         rules:[]
     }
 }
+
 if(process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'dev'){
+
     webpackConfig.devtool='cheap-module-eval-source-map'
     webpackConfig.entry.bundle=[
         'webpack-dev-server/client',
@@ -138,18 +139,26 @@ if(process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'dev'){
         'redux':'Redux',
         'react-redux':'ReactRedux',
         'react-router-redux':'ReactRouterRedux',
-        //'redux-saga':'reduxSaga',
-        //'redux-actions':'reduxActions',
+        'redux-saga':'ReduxSaga'
     })
     webpackConfig.output.chunkFilename='[id].[chunkhash:5].min.js'
-    // webpackConfig.output.publicPath='/jkjd_react/'+packageInfo.version+'/'
-    webpackConfig.output.publicPath='/React/react-admin/dist/'+packageInfo.version+'/'
+
+    //指定发布地址路径
+    // webpackConfig.output.publicPath='/jyhNew/'+packageInfo.version+'/'
+    webpackConfig.output.publicPath='/jyhNew/'
+
+    webpackConfig.plugins.push(new webpack.HashedModuleIdsPlugin()) //缓存问题
+    webpackConfig.plugins.push(new ImageminPlugin({
+      pngquant: {
+        quality: '95-100'
+      }
+    }))
+
     webpackConfig.plugins.push(new ExtractTextPlugin({
         filename:'bundle.min.css',
         disable: false,
         allChunks: true
     }))
-
     webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({
         compress: {
             warnings: false
