@@ -1,9 +1,7 @@
-/**
- * Created by hao.cheng on 2017/4/26.
- */
+
 import React, { Component } from 'react';
 import { Row, Col, Card } from 'antd';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from 'components/BreadcrumbCustom';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import draftToHtml from 'draftjs-to-html';

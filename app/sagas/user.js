@@ -10,15 +10,15 @@ import * as axios from "utils/axios";
 import * as cache from "utils/cache";
 
 function* userLogin({username,password}) {
-    yield put({type:'front/set/spin',spinState:true});
-    const user = yield call(axios.post,'/user/login',{username,password});
-    yield put({type:'front/set/spin',spinState:false});
-    if(user.code != 0){
-        yield call(utils.modalTis,user.message);
-    }else{
-        yield call(cache.set,'userInfo',user.data);
-        yield call(hashHistory.push,'/');
-    }
+    // yield put({type:'front/set/spin',spinState:true});
+    // const user = yield call(axios.post,'/user/login',{username,password});
+    // yield put({type:'front/set/spin',spinState:false});
+    // if(user.code != 0){
+    //     yield call(utils.modalTis,user.message);
+    // }else{
+        yield call(cache.set,'userInfo',{username,password});
+        yield call(hashHistory.push,'/app/dashboard/index');
+    // }
 }
 
 function* watchUserLogin() {

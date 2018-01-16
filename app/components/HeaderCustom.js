@@ -1,20 +1,15 @@
-/**
- * Created by hao.cheng on 2017/4/13.
- */
+
 import React, {PureComponent} from 'react'
 import { connect } from 'react-redux';
 import { Menu, Icon, Layout, Badge, Popover } from 'antd';
 import screenfull from 'screenfull';
 import * as cache from "utils/cache";
 import SiderCustom from './SiderCustom';
-import avater from 'assets/scss/imgs/b1.jpg';
+import avater from 'assets/images/b1.jpg';
 const { Header } = Layout;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
-@connect(({front})=>{
-    return {front}
-})
 
 
 export default class extends PureComponent {
@@ -51,7 +46,7 @@ export default class extends PureComponent {
         return (
             <Header style={{ background: '#fff', padding: 0, height: 65 }} className="custom-theme" >
                 {
-                    this.props.front.isMobile ? (
+                    this.props.gstates.isMobile ? (
                         <Popover 
                             content={<SiderCustom path={this.props.path} popoverHide={this.popoverHide} />} 
                             trigger="click" 

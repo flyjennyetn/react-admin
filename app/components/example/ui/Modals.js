@@ -1,9 +1,7 @@
-/**
- * Created by hao.cheng on 2017/4/23.
- */
+
 import React, { Component } from 'react';
 import { Row, Col, Card, Modal, Button } from 'antd';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from 'components/BreadcrumbCustom';
 const confirm = Modal.confirm;
 
 class S extends Component {

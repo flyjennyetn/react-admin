@@ -1,15 +1,18 @@
+/**
+ * Created by flyjennyetn on 2016-10-26.
+ */
 import packageInfo from './package.json'
 import webpack from 'webpack'
 import path from 'path'
 
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+import ImageminPlugin from 'imagemin-webpack-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import CompressionWebpackPlugin from 'compression-webpack-plugin'
-import HashOutput from 'webpack-plugin-hash-output';
 
 const svgDirs = [
-    require.resolve('antd').replace(/warn\.js$/, ''),  // 1. 属于 antd-mobile 内置 svg 文件
-    // path.resolve(__dirname, 'assets/iconfont'),  // 2. 自己私人的 svg 存放目录
+    require.resolve('antd').replace(/warn\.js$/, ''),  // 1. 属于 antd 内置 svg 文件
+    path.resolve(__dirname, 'assets/fonts'),  // 2. 自己私人的 svg 存放目录
 ]
 var webpackConfig={
     entry: {
@@ -145,7 +148,7 @@ if(process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'dev'){
 
     //指定发布地址路径
     // webpackConfig.output.publicPath='/jyhNew/'+packageInfo.version+'/'
-    webpackConfig.output.publicPath='/jyhNew/'
+    webpackConfig.output.publicPath='/react-admin/dist/'
 
     webpackConfig.plugins.push(new webpack.HashedModuleIdsPlugin()) //缓存问题
     webpackConfig.plugins.push(new ImageminPlugin({

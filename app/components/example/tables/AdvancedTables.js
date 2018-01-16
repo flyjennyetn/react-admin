@@ -1,12 +1,10 @@
-/**
- * Created by hao.cheng on 2017/4/16.
- */
+
 import React from 'react';
 import { Row, Col, Card } from 'antd';
 import FixedTable from './FixedTable';
 import ExpandedTable from './ExpandedTable';
 import EditableTable from './EditableTable';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from 'components/BreadcrumbCustom';
 
 class AdvancedTables extends React.Component {
     render() {

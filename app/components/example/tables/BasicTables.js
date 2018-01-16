@@ -1,13 +1,11 @@
-/**
- * Created by hao.cheng on 2017/4/15.
- */
+
 import React from 'react';
 import { Row, Col, Card } from 'antd';
 import BasicTable from './BasicTable';
 import SelectTable from './SelectTable';
 import SortTable from './SortTable';
 import SearchTable from './SearchTable';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from 'components/BreadcrumbCustom';
 
 const BasicTables = () => (
     <div className="gutter-example">

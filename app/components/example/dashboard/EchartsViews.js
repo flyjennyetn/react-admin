@@ -1,6 +1,4 @@
-/**
- * Created by hao.cheng on 2017/5/5.
- */
+
 import React from 'react';
 import ReactEcharts from 'echarts-for-react';
 import echarts from 'echarts';
@@ -88,7 +86,7 @@ const option = {
         data: ['1200', '1400', '808', '811', '626', '488', '1600'],
         areaStyle: {
             normal: {
-                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                color: echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                     offset: 0,
                     color: 'rgba(216, 244, 247,1)'
                 }, {

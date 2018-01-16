@@ -1,18 +1,16 @@
-/**
- * Created by hao.cheng on 2017/4/22.
- */
+
 import React from 'react';
 import Emoji from './emoji';
 import { Row, Col, Card, Icon } from 'antd';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from 'components/BreadcrumbCustom';
 
 const emojiList = () => {
     let _elements = [];
-    for (let i = 1; i < 36; i++) {
+    for (let i = 1; i < 30; i++) {
         _elements.push(
             <li key={i}>
-                <Emoji type={'Expression_' + i} />
-                <span>{'Expression_' + i}</span>
+                <Emoji type={'emoji-' + i} />
+                <span>{'emoji-' + i}</span>
             </li>
         )
     }

@@ -1,9 +1,7 @@
-/**
- * Created by hao.cheng on 2017/4/28.
- */
+
 import React from 'react';
 import { Row, Col, Card } from 'antd';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from 'components/BreadcrumbCustom';
 import Draggable from 'react-draggable';
 
 class Drags extends React.Component {

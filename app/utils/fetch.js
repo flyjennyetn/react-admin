@@ -39,7 +39,8 @@ export const callApi = (fullUrl, data = null) => {
                 return false;
             }
         }).catch((err)=>{
-            console.log(err)
+            Toast.info("网络请求异常，请检查网络")
+            return false;
         })
 }
 

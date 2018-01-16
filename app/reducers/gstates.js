@@ -1,21 +1,16 @@
 /**
  * Created by flyjennyetn on 2016-10-26.
  */
-import {
-	handleActions
-} from 'redux-actions';
-import {
-	combineReducer
-} from 'redux';
+import {handleActions} from 'redux-actions';
 
-const front = handleActions({
-	['front/set/spin'](state, action) {
+const gstates = handleActions({
+	['gstates/set/spin'](state, action) {
 		return {
 			...state,
 			spinState: action.spinState,
 		};
 	},
-	['front/set/isMobile'](state, action) {
+	['gstates/set/isMobile'](state, action) {
 		return {
 			...state,
 			isMobile: action.isMobile,
@@ -26,4 +21,4 @@ const front = handleActions({
 	isMobile:false
 });
 
-export default front;
+export default gstates;

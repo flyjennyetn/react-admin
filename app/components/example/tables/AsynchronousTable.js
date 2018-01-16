@@ -1,10 +1,8 @@
-/**
- * Created by hao.cheng on 2017/4/16.
- */
+
 import React from 'react';
 import { Table, Button, Row, Col, Card } from 'antd';
 // import { getPros } from '../../axios';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from 'components/BreadcrumbCustom';
 
 const columns = [{
     title: '项目名',

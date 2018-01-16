@@ -1,6 +1,4 @@
-/**
- * Created by hao.cheng on 2017/4/22.
- */
+
 import React from 'react';
 import { Breadcrumb, Switch, Icon } from 'antd';
 import { Link } from 'react-router';
@@ -69,7 +67,7 @@ class BreadcrumbCustom extends React.Component {
                     ${this.state.theme ?
                     `
                     .custom-theme {
-                        background: ${this.state.theme.header.background} !important;
+                        background: linear-gradient(to right,${this.state.theme.header.background} 0,${this.state.theme.header.background}90 100%) !important;
                         color: #fff !important;
                     }
                     .custom-theme .ant-menu {

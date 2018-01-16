@@ -1,9 +1,7 @@
-/**
- * Created by hao.cheng on 2017/4/25.
- */
+
 import React, { Component } from 'react';
 import { Row, Col, Card, Button, notification, Icon, Select } from 'antd';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from 'components/BreadcrumbCustom';
 const { Option } = Select;
 const options = ['topLeft', 'topRight', 'bottomLeft', 'bottomRight'];
 class Notifications extends Component {

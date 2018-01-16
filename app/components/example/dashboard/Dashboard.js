@@ -1,20 +1,16 @@
-/**
- * Created by hao.cheng on 2017/5/3.
- */
-import React, {PureComponent} from "react";
+
+import React from 'react';
 import { Row, Col, Card, Timeline, Icon } from 'antd';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from 'components/BreadcrumbCustom';
 import EchartsViews from './EchartsViews';
 import EchartsProjects from './EchartsProjects';
-import b1 from 'assets/scss/imgs/b1.jpg';
+import b1 from 'assets/images/b1.jpg';
 
-
-export default class extends PureComponent {
+class Dashboard extends React.Component {
     render() {
         return (
             <div className="gutter-example button-demo">
                 <BreadcrumbCustom />
-
                 <Row gutter={10}>
                     <Col className="gutter-row" md={4}>
                         <div className="gutter-box">
@@ -79,6 +75,8 @@ export default class extends PureComponent {
                             </Card>
                         </div>
                     </Col>
+                </Row>
+                <Row gutter={10}>
                     <Col className="gutter-row" md={8}>
                         <div className="gutter-box">
                             <Card bordered={false}>
@@ -170,3 +168,4 @@ export default class extends PureComponent {
     }
 }
 
+export default Dashboard;

@@ -1,7 +1,7 @@
-import front from './front'
+import gstates from './gstates'
 
 const rootReducer = {
-	front
+	gstates
 };
 
 export default rootReducer;

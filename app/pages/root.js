@@ -1,36 +1,34 @@
-/**
- * Created by hao.cheng on 2017/4/16.
- */
-import React, {PureComponent} from 'react'
-import {connect} from 'react-redux'
-import {Spin} from 'antd'
+export default {
+  path: '/',
+  component: require('./App').default,
+  // indexRedirect: {
+  //   to:"/app/dashboard/index"
+  // },
+  indexRoute:{
+      getComponent(state, cb){
+        require.ensure([], require => cb(null, require('./Login').default))
+      }
+  },
+  childRoutes: [
+    // {
+    //   path: '/login',
+    //   getComponent(state, cb){
+    //     require.ensure([], require => cb(null, require('./Login').default))
+    //   }
+    // },
+    {
+      path: 'app',
+      component: require('./Boot').default,
 
-@connect(({front})=>{
-    return {front}
-})
-
-export default class extends PureComponent {
-
-    componentWillMount() {
-        if(process.env.NODE_ENV == 'production'){
-            console.log('生产')
-        }else{
-            console.log('测试')
-        }
+      childRoutes:[
+          require('../components/example/routes').default
+      ]
+    },
+    {
+      path: '*',
+      getComponent(state, cb){
+        require.ensure([], require => cb(null, require('./NotFound').default))
+      }
     }
-
-    render() {
-    	const {spinState} = this.props.front
-        return (
-            <div style={{height: '100%'}}>
-            	{spinState && 
-	            	<div className="mask flex-wrp flex-center">
-				    	<Spin />
-				  	</div>
-			  	}
-                {this.props.children}
-            </div>
-        )
-    }
+  ]
 }
-

@@ -3,7 +3,7 @@
  */
 import axios from 'axios'
 import moment from 'moment'
-import {Toast} from 'antd-mobile';
+// import {Toast} from 'antd';
 import {JYH171229} from './config'
 
 let config = {
@@ -16,10 +16,10 @@ let config = {
         let datum = {
             ...data.info,
             head:{
-                "appid": JYT171215.APPID,
+                "appid": JYH171229.APPID,
                 "transDate": moment().format('YYYYMMDD'),
                 "transTime": moment().format('HHmmss'),
-                "appkey": JYT171215.APPKEY,
+                "appkey": JYH171229.APPKEY,
                 "sign": "",
                 ...data.params
             }
@@ -32,16 +32,23 @@ let config = {
         if (json.resultCode == '10') {
             return json.t
         } else {
-            Toast.info(json.resultMsg)
+            // Toast.info(json.resultMsg)
             return false
         }
     }]
 };
-axios.interceptors.response.use(function (res) {
-    //相应拦截器
-    return res.data;
-});
+// axios.interceptors.response.use(function (res) {
+//     //相应拦截器
+//     return res;
+// });
 export function postApi(data) {
     let fullUrl = (data.params.requestUrl.indexOf('http') === -1) ? JYH171229.API_HOST + data.params.requestUrl : data.params.requestUrl;
     return axios.post(fullUrl,data, config)
+    .then(function(res){
+        return res;
+    })
+    .catch(function(err){
+        // Toast.info("网络请求异常，请检查网络")
+        return false;
+    })
 }

@@ -1,3 +1,6 @@
+/**
+ * Created by flyjennyetn on 2016-10-26.
+ */
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 import config from '../webpack.config';

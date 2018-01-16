@@ -1,6 +1,4 @@
-/**
- * Created by hao.cheng on 2017/4/17.
- */
+
 import React from 'react';
 import ReactEcharts from 'echarts-for-react';
 import echarts from 'echarts';
@@ -77,7 +75,7 @@ const option = {
             },
             areaStyle: {
                 normal: {
-                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                    color: echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                         offset: 0,
                         color: 'rgb(255, 158, 68)'
                     }, {
