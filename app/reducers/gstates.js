@@ -15,10 +15,17 @@ const gstates = handleActions({
 			...state,
 			isMobile: action.isMobile,
 		};
-	}
+	},
+	['gstates/set/loading'](state, action) {
+		return {
+			...state,
+			isLoading: action.isLoading
+		};
+	},	
 }, {
 	spinState:false,
-	isMobile:false
+	isMobile:false,
+	isLoading:false
 });
 
 export default gstates;

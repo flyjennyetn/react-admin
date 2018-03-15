@@ -8,6 +8,10 @@
     "dev": "npm run clean && cross-env NODE_ENV=dev webpack --hide-modules --progress --profile --colors --config webpack.build.js",
     "build": "npm run clean && cross-env NODE_ENV=production webpack --hide-modules --progress --profile --colors --config webpack.build.js"
   },
+  "publicPath": {
+    "dev": "/web-admin/dist/",
+    "build": "/ceshi/"
+  },
   "author": "flyjennyetn",
   "license": "MIT",
   "bugs": {},
@@ -16,22 +20,30 @@
     "type": "git",
     "url": "git@github.com:flyjennyetn/react-admin.git"
   },
+  "theme": {
+    "primary-color": "#fb405f",
+    "link-color": "#1DA57A",
+    "border-radius-base": "2px",
+    "font-size-base": "16px",
+    "line-height-base": "1.2"
+  },
   "dependencies": {
-    "antd": "^3.0.1",
-    "axios": "^0.17.1",
+    "antd": "^2.13.11",
     "cookie-browser": "^1.0.0",
+    "crypto-js": "^3.1.9-1",
     "draftjs-to-html": "^0.7.2",
     "draftjs-to-markdown": "^0.4.2",
     "echarts": "^3.8.5",
     "echarts-for-react": "^2.0.4",
     "express": "^4.15.3",
+    "fetch-jsonp": "^1.1.3",
     "lodash": "^4.17.4",
     "moment": "2.18.1",
     "nprogress": "^0.2.0",
     "photoswipe": "^4.1.2",
     "rc-banner-anim": "^1.0.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "react-draft-wysiwyg": "^1.10.0",
     "react-draggable": "^3.0.5",
     "react-fastclick": "^3.0.2",
@@ -69,6 +81,8 @@
     "file-loader": "^1.1.6",
     "html-webpack-plugin": "^2.29.0",
     "imagemin-webpack-plugin": "^1.5.2",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
     "postcss-loader": "^2.0.6",
     "postcss-pxtorem": "^4.0.1",
     "postcss-scss": "^1.0.2",
@@ -77,9 +91,9 @@
     "style-loader": "^0.19.1",
     "svg-sprite-loader": "^3.6.2",
     "url-loader": "^0.5.9",
-    "webpack": "^3.1.0",
-    "webpack-dev-server": "^2.5.1",
-    "webpack-plugin-hash-output": "^1.3.0",
-    "webpack-node-externals": "^1.6.0"
+    "webpack": "^2.0.0-beta",
+    "webpack-dev-server": "^2.6.1",
+    "webpack-node-externals": "^1.6.0",
+    "webpack-plugin-hash-output": "^1.3.0"
   }
 }
