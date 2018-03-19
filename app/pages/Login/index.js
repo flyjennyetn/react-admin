@@ -3,6 +3,7 @@ import React, {PureComponent} from "react";
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { connect } from 'react-redux';
 
+
 const FormItem = Form.Item;
 
 @connect(({gstates})=>{
@@ -32,24 +33,25 @@ export default class extends PureComponent {
         // return false
     }
     handleSubmit = (e) => {
-        e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-            if (!err) {
-                this.setState({
-                    loading:true
-                })
+        // e.preventDefault();
+        // this.props.form.validateFields((err, values) => {
+        //     if (!err) {
+        //         this.setState({
+        //             loading:true
+        //         })
                 this.props.dispatch({
                     type:"user/manager/sec2Login",
                     ...values
                 })
-            }
-        });
+        //     }
+        // });
     };
 
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
             <div className="login">
+
                 <div className="login-form" >
                     <div className="login-logo">
                         <span>React Admin</span>

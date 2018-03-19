@@ -1,7 +1,7 @@
 /**
  * Created by flyjennyetn on 2016-10-26.
  */
-import axios from 'axios'
+import axios from 'assets/js/axios'
 import moment from 'moment'
 import * as cache from "utils/cache";
 import {PTGL180116} from './config'
