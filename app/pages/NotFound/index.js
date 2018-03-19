@@ -3,6 +3,7 @@
  */
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
+import { Row, Col, Card} from 'antd';
 import BreadcrumbCustom from 'components/BreadcrumbCustom/';
 import img from 'assets/images/404.png';
 
