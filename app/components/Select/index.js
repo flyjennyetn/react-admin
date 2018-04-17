@@ -19,15 +19,18 @@ export default class extends PureComponent {
     }
 
     render() {
-        const {value,onChange} = this.state;
+        const {value,onChange,options,placeholder} = this.props;
+        console.log(options)
         return (
             <Select
                 style={{ width:180}}
                 value={value}
                 onChange={onChange} 
-            >
-                <Option value="1">是</Option>
-                <Option value="2">否</Option>
+                placeholder={placeholder}
+            >   
+                {options && options.map((el,i)=>
+                    <Option key={i} value={el.value}>{el.title}</Option>
+                )}
             </Select>
         );
     }

@@ -17,9 +17,9 @@ export default class extends PureComponent {
     }
 
     render() {
-        const {value,onChange} = this.state;
+        const {value,onChange,placeholder} = this.props;
         return (
-            <DatePicker defaultValue={moment(value)}  onChange={onChange} />
+            <DatePicker defaultValue={value ? moment(value) : moment()}  onChange={onChange} placeholder={placeholder}/>
         );
     }
 }

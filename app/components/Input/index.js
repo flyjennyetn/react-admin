@@ -19,9 +19,9 @@ export default class extends PureComponent {
 
 
     render() {
-        const {value,onChange} = this.state;
+        const {value,onChange,placeholder} = this.props;
         return (
-            <Input value={value} onChange={onChange} />
+            <Input value={value} onChange={onChange} placeholder={placeholder}/>
         );
     }
 }

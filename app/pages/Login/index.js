@@ -3,6 +3,7 @@ import React, {PureComponent} from "react";
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { connect } from 'react-redux';
 
+import Particles from 'react-particles-js';
 
 const FormItem = Form.Item;
 
@@ -51,6 +52,71 @@ export default class extends PureComponent {
         const { getFieldDecorator } = this.props.form;
         return (
             <div className="login">
+                <Particles
+                    params={{
+                        particles: {
+                            "number": {
+                              "value": 80,
+                              "density": {
+                                "enable": true,
+                                "value_area": 800
+                              }
+                            },
+                            "color": {
+                              "value": "#fff"
+                            },
+                            line_linked: {
+                                "color": "#fb405f"
+                            }
+                        },
+                        "interactivity": {
+                                "detect_on": "canvas",
+                                "events": {
+                                  "onhover": {
+                                    "enable": true,
+                                    "mode": "grab"
+                                  },
+                                  "onclick": {
+                                    "enable": true,
+                                    "mode": "push"
+                                  },
+                                  "resize": true
+                                },
+                                "modes": {
+                                  "grab": {
+                                    "distance": 140,
+                                    "line_linked": {
+                                      "opacity": 1
+                                    }
+                                  },
+                                  "bubble": {
+                                    "distance": 400,
+                                    "size": 40,
+                                    "duration": 2,
+                                    "opacity": 8,
+                                    "speed": 3
+                                  },
+                                  "repulse": {
+                                    "distance": 200,
+                                    "duration": 0.4
+                                  },
+                                  "push": {
+                                    "particles_nb": 4
+                                  },
+                                  "remove": {
+                                    "particles_nb": 2
+                                  }
+                                }
+                            }
+                    }}
+                    style={{
+                        position:"fixed",
+                        background:"#000",
+                        top:'0',
+                        left:'0',
+                        width: '100%',
+                    }}
+                 />
 
                 <div className="login-form" >
                     <div className="login-logo">
