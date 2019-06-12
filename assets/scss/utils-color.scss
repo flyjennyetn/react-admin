@@ -1,40 +1,38 @@
+
+@mixin color-variant($color, $bg) {  
+    color: $color;
+    background-color: $bg;
+}
+
 .dark-white {
   color: $dark;
   background-color: $white;
 }
 .min-black {
-  color: $min-black;
-  background-color: $black-color;
+  @include color-variant($min-black, $black-color)
 }
 .black {
-  background-color: $black;
-  color: $black-color;
+  @include color-variant($black, $black-color);
 }
 
 .dark {
-  background-color: $dark;
-  color: $dark-color;
+  @include color-variant($dark, $dark-color);
 }
 
 .grey {
-  background-color: $grey;
-  color: $grey-color;
+ @include color-variant($grey, $grey-color);
 }
 
 .primary {
-  background-color: $primary;
-  color: $primary-color;
+ @include color-variant($primary, $primary-color);
 }
 
 .info {
-  background-color: $info;
-  color: $info-color;
+  @include color-variant($info, $info-color);
 }
 .warn {
-  background-color: $warn;
-  color: $warn-color;
+  @include color-variant($warn, $warn-color);
 }
 .danger {
-  background-color: $danger;
-  color: $danger-color;
+  @include color-variant($danger, $danger-color)
 }

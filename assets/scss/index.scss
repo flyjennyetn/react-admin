@@ -15,15 +15,27 @@
 @import "utils-size.scss";
 @import "utils-border.scss";
 @import "utils-spacing.scss";
-#app{
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+#root{
   height: 100%;
 }
 .ant-layout{
   height: 100%;
+  .logo{
+    height: 32px;
+    background: #ffffff;
+    border-radius: 6px;
+    margin: 16px;
+  }
   .ant-layout-sider-collapsed{
     .anticon{
       font-size: 16px;
-      margin-left: 8px;
+      // margin-left: 8px;
     }
     .nav-text{
       display: none;
@@ -39,15 +51,6 @@
     margin: 10px 0 10px 0;
   }
 }
-
-.logo{
-  height: 32px;
-  background: #fff;
-  border-radius: 6px;
-  margin: 16px;
-  text-align: center;
-}
-
 .gutter-example{
   .ant-row{
     //margin-left: 0 !important;
