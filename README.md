@@ -10,8 +10,8 @@
  - `Utils`中不允许添加新的文件，如果需要新增公共方法，请在对应文件中添加
  - 项目中的所有公共字体、图片、插件、样式和`logo`，都在`assets`文件夹中
 ```sh  
-├─ JYH180315                      项目名  
-	├─ app                        项目配置文件       
+├─ react-admin                      项目名  
+	├─ src                        项目配置文件       
         ├── components            组件库  
         ├── pages                 容器/页  
         ├── reducers              负责处理action的state更新。  
